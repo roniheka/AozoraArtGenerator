@@ -8,10 +8,10 @@ def image_generator(api_key="",input_text="",style=""):
     try:
         response = client.images.generate(
         model="dall-e-3",
-        prompt="以下の場面をできる限り正確に表現した、1枚のイラストを生成してください。\
+        prompt="以下の小説の場面を表現した、1枚のイラストを生成してください。\
             登場人物の性別や外観は、人物の名前や振る舞い、発言内容から推定してください。"
             +style
-            +"(Caution: YOU MUST NOT show any text on the image!)"
+            +"(Note: YOU MUST NOT show any text on the image!)"
             +input_text,
         size="1024x1024",
         quality="standard",

@@ -30,14 +30,6 @@ def init_page():
     work_list_df = pd.read_csv("static/list_person_all_extended_utf8.csv")
     work_list_df["姓名"] = work_list_df["姓"]+work_list_df["名"].fillna("")
 
-    footer = """
-        <style>.footer {position: fixed;left: 0;bottom: 0;width: 100%;background-color: #f1f1f1;color: black;text-align: center;}
-        </style><div class="footer">
-        <p><a href="https://github.com/roniheka/AozoraArtGenerator" target="_blank">Developed with Streamlit</a></p>
-     </div>
-        """
-    st.markdown(footer, unsafe_allow_html=True)
-
     return text, style,selected_style, work_list_df
 
 
@@ -75,18 +67,18 @@ def main():
     
     if 'selected_author' not in st.session_state:
         st.session_state['selected_author'] = random.choice(authors)
-    selected_author = st.sidebar.selectbox("著者を選択してください", authors,
+    selected_author = st.sidebar.selectbox("著者", authors,
                                    index=authors.index(st.session_state['selected_author']))
     works = work_list_df[work_list_df["姓名"]==selected_author]["作品名"].tolist()
     if 'selected_work' in st.session_state:
         try:
-            st.session_state.selected_work = st.sidebar.selectbox("作品を選択してください", works,
+            st.session_state.selected_work = st.sidebar.selectbox("作品", works,
                                         index=works.index(st.session_state['selected_work']))
         except: #著者名だけ変えた時
-            st.session_state.selected_work = st.sidebar.selectbox("作品を選択してください", works,
+            st.session_state.selected_work = st.sidebar.selectbox("作品", works,
                                     index=0)
     else:
-        st.session_state.selected_work = st.sidebar.selectbox("作品を選択してください", works,
+        st.session_state.selected_work = st.sidebar.selectbox("作品", works,
                                     index=0)
         
 
@@ -120,6 +112,14 @@ def main():
             file_name=f"IMG_{st.session_state.title}_{style_type}.jpg",
             mime="image/jpeg"
         )
+
+    footer = """
+        <style>.footer {position: fixed;left: 0;bottom: 0;width: 100%;text-align: right;}
+        </style><div class="footer">
+        <p><a href="https://github.com/roniheka/AozoraArtGenerator" target="_blank">GitHub:roniheka/AozoraArtGenerator</a></p>
+        </div>
+        """
+    st.markdown(footer, unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()

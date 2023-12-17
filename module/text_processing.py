@@ -48,7 +48,7 @@ def split_into_sentences(text):
     sentences = re.split(r'(?<=[。])', text)
     return [sentence for sentence in sentences if sentence]
 
-def extract_sentences(sentences, max_length=300):
+def extract_sentences(sentences, max_length=250):
     # ランダムに文を選ぶ
     start_index = random.randint(0, len(sentences) - 1)
     extracted_text = sentences[start_index]
