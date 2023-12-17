@@ -15,6 +15,9 @@
 3. 青空文庫の著者・作品リストから文学作品を選択し、一節を入力します。
 4. 「挿絵を生成」ボタンをクリックして、挿絵を生成・表示します。
 
+![example](https://github.com/roniheka/AozoraArtGenerator/assets/130254660/9d002e31-a5b3-4b4f-a6f9-56b3e2c36b5f)
+
+
 ## フィードバック
 フィードバックや機能のリクエストは、GitHubリポジトリのIssuesセクションからお寄せください。
 
